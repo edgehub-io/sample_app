@@ -13,6 +13,9 @@ SimpleImageReturn
 > receives messages from grove side to update badguy's picture to the grove side. This server is running on the same EC2 instance, communicating with grove side's client via TCP socket.
 
 ## Grove-side
+Before running grove-side app, we need to first start edgex services:
+> docker-compose -f docker-compose-demo-grove.yml up --detach
+
 On grove side, we can either run it directly:
 
 > python match.py
@@ -31,6 +34,6 @@ It will try to match badguy.jpg with all pictures in (`images/`) directory
 ## Client-side
 SimpleImageSender
 It is a simple jar that sends a picture of the badguy to SimpleImageReceiver.
-To use it, simple run it and provide the picture file:
-> java -jar SimpleImageSender.jar warakawa_son.jpg
+To use it, simple run the jar and provide the picture file:
+> java -jar simpleimagesender.jar warakawa_son.jpg
 
